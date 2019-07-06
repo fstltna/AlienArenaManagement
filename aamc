@@ -11,7 +11,6 @@ my $InitDName = "/etc/init.d/alienarena";
 my $ALIENARENADIR = "/root/AlienArena";
 my $BackupCommand = "/root/AlienArenaBackup/alienarenabackup.pl";
 my $PagerCommand = "/usr/bin/less";
-my $Logfile = "/root/minetest/debug.txt";
 my $MapsLst = "/root/AlienArena/arena/maps.lst";
 my $DefaultCfg = "/root/AlienArena/arena/default.cfg";
 my $ServerCfg = "/root/AlienArena/arena/server.cfg";
@@ -64,7 +63,7 @@ if (-f $MySettings)
 		{
 			$InitDName = $Setting;
 		}
-		if ($Command eq "minetestdir")
+		if ($Command eq "alienarenadir")
 		{
 			$ALIENARENADIR = $Setting;
 		}
@@ -75,10 +74,6 @@ if (-f $MySettings)
 		if ($Command eq "pagercommand")
 		{
 			$PagerCommand = $Setting;
-		}
-		if ($Command eq "logfile")
-		{
-			$Logfile = $Setting;
 		}
 		if ($Command eq "mapslist")
 		{
@@ -100,13 +95,11 @@ else
 	# Store defaults
 	open (my $FH, ">", $MySettings) or die "Could not create default file '$MySettings' $!";
 	print $FH "fileeditor=/bin/nano\n";
-	print $FH "initdname=/etc/init.d/minetest\n";
-	print $FH "minetestdir=/root/minetest\n";
-	print $FH "backupcommand=/root/MineBackup/minebackup.pl\n";
+	print $FH "initdname=/etc/init.d/alienarena\n";
+	print $FH "alienarenadir=/root/AlienArena\n";
+	print $FH "backupcommand=/root/AlienArenaBackup/alienarenabackup.pl\n";
 	print $FH "pagercommand=/usr/bin/less\n";
 	print $FH "logfile=/root/minetest/debug.txt\n";
-	print $FH "playerdir=/root/minetest/worlds/world/players\n";
-	print $FH "minetestconf=/root/minetest/minetest.conf\n";
 	print $FH "defaultcfg=/root/AlienArena/arena/default.cfg\n";
 	print $FH "mapslst=/root/AlienArena/arena/default.cfg\n";
 	print $FH "motd=/root/AlienArena/arena/motd.txt\n";
@@ -150,9 +143,8 @@ sub MainMenu
                                       '8', 'Edit server.cfg',
                                       '9', 'Edit motd.txt',
                                       '10', 'Run Backup',
-                                      '11', 'View Log',
-                                      '12', 'Edit Settings',
-                                      '13', 'Restart Game',
+                                      '11', 'Edit Settings',
+                                      '12', 'Restart Game',
                                       'q', 'Quit AAMC' ] );
 }
 
@@ -225,15 +217,10 @@ while (-1)
 	}
 	elsif ($menuselection eq "11")
 	{
-		# View log file
-		system("$PagerCommand $Logfile");
-	}
-	elsif ($menuselection eq "12")
-	{
 		# Edit settings file
 		system("$FileEditor $MySettings");
 	}
-	elsif ($menuselection eq "13")
+	elsif ($menuselection eq "12")
 	{
 		# Reset server process
 		print "Killing Alien Arena Server Process\n";
