@@ -8,7 +8,7 @@ use Term::ANSIScreen qw(cls);
 
 my $FileEditor = "/bin/nano";
 my $InitDName = "/etc/init.d/alienarena";
-my $ALIENARENADIR = "/root/Alien\ Arena";
+my $ALIENARENADIR = "/root/AlienArena";
 my $BackupCommand = "/root/AlienArenaBackup/alienarenabackup.pl";
 my $PagerCommand = "/usr/bin/less";
 my $Logfile = "/root/minetest/debug.txt";
