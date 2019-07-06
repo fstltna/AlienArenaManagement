@@ -151,9 +151,8 @@ sub MainMenu
                                       '9', 'Edit motd.txt',
                                       '10', 'Run Backup',
                                       '11', 'View Log',
-                                      '12', 'View Players',
-                                      '13', 'Edit Settings',
-                                      '14', 'Restart Server',
+                                      '12', 'Edit Settings',
+                                      '13', 'Restart Game',
                                       'q', 'Quit AAMC' ] );
 }
 
@@ -229,12 +228,12 @@ while (-1)
 		# View log file
 		system("$PagerCommand $Logfile");
 	}
-	elsif ($menuselection eq "13")
+	elsif ($menuselection eq "12")
 	{
-		# Edit minetest.conf file
+		# Edit settings file
 		system("$FileEditor $MySettings");
 	}
-	elsif ($menuselection eq "14")
+	elsif ($menuselection eq "13")
 	{
 		# Reset server process
 		print "Killing Alien Arena Server Process\n";
