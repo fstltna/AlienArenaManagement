@@ -36,7 +36,7 @@ my $d = new UI::Dialog ( backtitle => "Alien Arena Management Console v$AAMC_ver
 my $windowtitle = "Welcome to the Alien Arena Management Console!";
 my $enjoyedtitle = "We hope you enjoyed AAMC!";
 my $introtext =
-"This is the Alien Arena Management Console, a utility for Minetest operators
+"This is the Alien Arena Management Console, a utility for Alien Arena operators
 to manage their servers from a text GUI rather than the command line.";
 
 $d->msgbox( title => $windowtitle, text => $introtext );
