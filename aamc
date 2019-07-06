@@ -99,7 +99,6 @@ else
 	print $FH "alienarenadir=/root/AlienArena\n";
 	print $FH "backupcommand=/root/AlienArenaBackup/alienarenabackup.pl\n";
 	print $FH "pagercommand=/usr/bin/less\n";
-	print $FH "logfile=/root/minetest/debug.txt\n";
 	print $FH "defaultcfg=/root/AlienArena/arena/default.cfg\n";
 	print $FH "mapslst=/root/AlienArena/arena/default.cfg\n";
 	print $FH "motd=/root/AlienArena/arena/motd.txt\n";
