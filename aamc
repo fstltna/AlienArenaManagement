@@ -12,7 +12,6 @@ my $ALIENARENADIR = "/root/AlienArena";
 my $BackupCommand = "/root/AlienArenaBackup/alienarenabackup.pl";
 my $PagerCommand = "/usr/bin/less";
 my $Logfile = "/root/minetest/debug.txt";
-my $PlayersDir = "/root/minetest/worlds/world/players";
 my $MapsLst = "/root/AlienArena/arena/maps.lst";
 my $DefaultCfg = "/root/AlienArena/arena/default.cfg";
 my $ServerCfg = "/root/AlienArena/arena/server.cfg";
@@ -81,17 +80,17 @@ if (-f $MySettings)
 		{
 			$Logfile = $Setting;
 		}
-		if ($Command eq "playerdir")
-		{
-			$PlayersDir = $Setting;
-		}
-		if ($Command eq "minetestconf")
+		if ($Command eq "mapslist")
 		{
 			$MapsLst = $Setting;
 		}
 		if ($Command eq "defaultcfg")
 		{
 			$DefaultCfg = $Setting;
+		}
+		if ($Command eq "motd")
+		{
+			$MOTD = $Setting;
 		}
 	}
 	close($FH);
@@ -108,7 +107,9 @@ else
 	print $FH "logfile=/root/minetest/debug.txt\n";
 	print $FH "playerdir=/root/minetest/worlds/world/players\n";
 	print $FH "minetestconf=/root/minetest/minetest.conf\n";
-	print $FH "defaultcfg=/root/minetest/worlds/world/world.mt\n";
+	print $FH "defaultcfg=/root/AlienArena/arena/default.cfg\n";
+	print $FH "mapslst=/root/AlienArena/arena/default.cfg\n";
+	print $FH "motd=/root/AlienArena/arena/motd.txt\n";
 	close($FH);
 }
 
@@ -227,14 +228,6 @@ while (-1)
 	{
 		# View log file
 		system("$PagerCommand $Logfile");
-	}
-	elsif ($menuselection eq "12")
-	{
-		# View users
-		system("clear");
-		system("ls $PlayersDir");
-		print "Press Enter To Continue";
-		my $entered = <STDIN>;
 	}
 	elsif ($menuselection eq "13")
 	{
