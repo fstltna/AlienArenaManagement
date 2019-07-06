@@ -13,8 +13,10 @@ my $BackupCommand = "/root/AlienArenaBackup/alienarenabackup.pl";
 my $PagerCommand = "/usr/bin/less";
 my $Logfile = "/root/minetest/debug.txt";
 my $PlayersDir = "/root/minetest/worlds/world/players";
-my $MinetestConf = "/root/minetest/minetest.conf";
-my $MinetestWorld = "/root/minetest/worlds/world/world.mt";
+my $MapsLst = "/root/AlienArena/arena/maps.lst";
+my $DefaultCfg = "/root/AlienArena/arena/default.cfg";
+my $ServerCfg = "/root/AlienArena/arena/server.cfg";
+my $MOTD = "/root/AlienArena/arena/motd.txt";
 
 ###################################################
 # No changes below here
@@ -85,11 +87,11 @@ if (-f $MySettings)
 		}
 		if ($Command eq "minetestconf")
 		{
-			$MinetestConf = $Setting;
+			$MapsLst = $Setting;
 		}
-		if ($Command eq "minetestworld")
+		if ($Command eq "defaultcfg")
 		{
-			$MinetestWorld = $Setting;
+			$DefaultCfg = $Setting;
 		}
 	}
 	close($FH);
@@ -106,7 +108,7 @@ else
 	print $FH "logfile=/root/minetest/debug.txt\n";
 	print $FH "playerdir=/root/minetest/worlds/world/players\n";
 	print $FH "minetestconf=/root/minetest/minetest.conf\n";
-	print $FH "minetestworld=/root/minetest/worlds/world/world.mt\n";
+	print $FH "defaultcfg=/root/minetest/worlds/world/world.mt\n";
 	close($FH);
 }
 
@@ -142,13 +144,15 @@ sub MainMenu
                                       '3', 'Server Console',
                                       '4', 'Turn Off Respawn',
                                       '5', 'Turn Respawn On',
-                                      '6', 'Edit World Cfg',
-                                      '7', 'Edit minetest.conf',
-                                      '8', 'Run Backup',
-                                      '9', 'View Log',
-                                      '10', 'View Players',
-                                      '11', 'Edit Settings',
-                                      '12', 'Restart Server',
+                                      '6', 'Edit default.cfg',
+                                      '7', 'Edit maps.lst',
+                                      '8', 'Edit server.cfg',
+                                      '9', 'Edit motd.txt',
+                                      '10', 'Run Backup',
+                                      '11', 'View Log',
+                                      '12', 'View Players',
+                                      '13', 'Edit Settings',
+                                      '14', 'Restart Server',
                                       'q', 'Quit AAMC' ] );
 }
 
@@ -193,15 +197,25 @@ while (-1)
 	}
 	elsif ($menuselection eq "6")
 	{
-		# Edit world.mt file
-		system("$FileEditor $MinetestWorld");
+		# Edit default.cfg file
+		system("$FileEditor $DefaultCfg");
 	}
 	elsif ($menuselection eq "7")
 	{
-		# Edit minetest.conf file
-		system("$FileEditor $MinetestConf");
+		# Edit maps.lst file
+		system("$FileEditor $MapsLst");
 	}
 	elsif ($menuselection eq "8")
+	{
+		# Edit server.cfg file
+		system("$FileEditor $ServerCfg");
+	}
+	elsif ($menuselection eq "9")
+	{
+		# Edit motd.txt file
+		system("$FileEditor $MOTD");
+	}
+	elsif ($menuselection eq "10")
 	{
 		# Run a backup
 		system("clear");
@@ -209,12 +223,12 @@ while (-1)
 		print "Press Enter To Continue";
 		my $entered = <STDIN>;
 	}
-	elsif ($menuselection eq "9")
+	elsif ($menuselection eq "11")
 	{
 		# View log file
 		system("$PagerCommand $Logfile");
 	}
-	elsif ($menuselection eq "10")
+	elsif ($menuselection eq "12")
 	{
 		# View users
 		system("clear");
@@ -222,12 +236,12 @@ while (-1)
 		print "Press Enter To Continue";
 		my $entered = <STDIN>;
 	}
-	elsif ($menuselection eq "11")
+	elsif ($menuselection eq "13")
 	{
 		# Edit minetest.conf file
 		system("$FileEditor $MySettings");
 	}
-	elsif ($menuselection eq "12")
+	elsif ($menuselection eq "14")
 	{
 		# Reset server process
 		print "Killing Alien Arena Server Process\n";
