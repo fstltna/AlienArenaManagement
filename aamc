@@ -171,7 +171,7 @@ while (-1)
 	elsif ($menuselection eq "3")
 	{
 		$d->msgbox( text => "To exit the Alien Arena console and return to AAMC press CTRL-A CTRL-D" );
-		system("screen -r");
+		system("screen -r AlienArena");
 	}
 	elsif ($menuselection eq "4")
 	{
