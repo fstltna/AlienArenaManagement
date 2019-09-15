@@ -22,7 +22,7 @@ my $MOTD = "/root/AlienArena/arena/motd.txt";
 
 my $MySettings = "$ENV{'HOME'}/.aamcrc";
 
-my $AAMC_ver = "1.0";
+my $AAMC_ver = "1.1";
 my $Record = "false";	# Are results saved?
 my $TempDir = "/tmp";
 my $RobotName = "";

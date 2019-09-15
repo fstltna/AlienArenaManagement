@@ -1,4 +1,4 @@
-# Alien Arena Management Console (1.0)
+# Alien Arena Management Console (1.1)
 Allows you to manage your Alien Arena server with a text based GUI -  Official support sites: [Official Github Repo](https://github.com/fstltna/AlienArenaManagement) - [Official Forum](https://fps.gameplayer.club/index.php/forum/utilities)
 
 ---
