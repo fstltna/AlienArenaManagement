@@ -8,13 +8,13 @@ use Term::ANSIScreen qw(cls);
 
 my $FileEditor = "/bin/nano";
 my $InitDName = "/etc/init.d/alienarena";
-my $ALIENARENADIR = "/root/AlienArena";
+my $ALIENARENADIR = "/root/alienarena";
 my $BackupCommand = "/root/AlienArenaBackup/alienarenabackup.pl";
 my $PagerCommand = "/usr/bin/less";
-my $MapsLst = "/root/AlienArena/arena/maps.lst";
-my $DefaultCfg = "/root/AlienArena/arena/default.cfg";
-my $ServerCfg = "/root/AlienArena/arena/server.cfg";
-my $MOTD = "/root/AlienArena/arena/motd.txt";
+my $MapsLst = "/root/alienarena/arena/maps.lst";
+my $DefaultCfg = "/root/alienarena/arena/default.cfg";
+my $ServerCfg = "/root/alienarena/arena/server.cfg";
+my $MOTD = "/root/alienarena/arena/motd.txt";
 
 ###################################################
 # No changes below here
@@ -22,7 +22,7 @@ my $MOTD = "/root/AlienArena/arena/motd.txt";
 
 my $MySettings = "$ENV{'HOME'}/.aamcrc";
 
-my $AAMC_ver = "1.1";
+my $AAMC_ver = "1.2";
 my $Record = "false";	# Are results saved?
 my $TempDir = "/tmp";
 my $RobotName = "";
@@ -96,12 +96,12 @@ else
 	open (my $FH, ">", $MySettings) or die "Could not create default file '$MySettings' $!";
 	print $FH "fileeditor=/bin/nano\n";
 	print $FH "initdname=/etc/init.d/alienarena\n";
-	print $FH "alienarenadir=/root/AlienArena\n";
+	print $FH "alienarenadir=/root/alienarena\n";
 	print $FH "backupcommand=/root/AlienArenaBackup/alienarenabackup.pl\n";
 	print $FH "pagercommand=/usr/bin/less\n";
-	print $FH "defaultcfg=/root/AlienArena/arena/default.cfg\n";
-	print $FH "mapslst=/root/AlienArena/arena/default.cfg\n";
-	print $FH "motd=/root/AlienArena/arena/motd.txt\n";
+	print $FH "defaultcfg=/root/alienarena/arena/default.cfg\n";
+	print $FH "mapslst=/root/alienarena/arena/default.cfg\n";
+	print $FH "motd=/root/alienarena/arena/motd.txt\n";
 	close($FH);
 }
 
