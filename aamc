@@ -22,7 +22,7 @@ my $MOTD = "/root/alienarena/arena/motd.txt";
 
 my $MySettings = "$ENV{'HOME'}/.aamcrc";
 
-my $AAMC_ver = "1.2";
+my $AAMC_ver = "1.3";
 my $Record = "false";	# Are results saved?
 my $TempDir = "/tmp";
 my $RobotName = "";
@@ -79,6 +79,10 @@ if (-f $MySettings)
 		{
 			$MapsLst = $Setting;
 		}
+		if ($Command eq "servercfg")
+		{
+			$ServerCfg = $Setting;
+		}
 		if ($Command eq "defaultcfg")
 		{
 			$DefaultCfg = $Setting;
@@ -102,6 +106,7 @@ else
 	print $FH "defaultcfg=/root/alienarena/arena/default.cfg\n";
 	print $FH "mapslst=/root/alienarena/arena/default.cfg\n";
 	print $FH "motd=/root/alienarena/arena/motd.txt\n";
+	print $FH "servercfg=/root/alienarena/arena/server.cfg\n";
 	close($FH);
 }
 
