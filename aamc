@@ -11,10 +11,10 @@ my $InitDName = "/etc/init.d/alienarena";
 my $ALIENARENADIR = "/home/aaowner/alienarena";
 my $BackupCommand = "/home/aaowner/AlienArenaBackup/alienarenabackup.pl";
 my $PagerCommand = "/usr/bin/less";
-my $MapsLst = "/home/aaowner/alienarena/arena/maps.lst";
-my $DefaultCfg = "/home/aaowner/alienarena/arena/default.cfg";
-my $ServerCfg = "/home/aaowner/alienarena/arena/server.cfg";
-my $MOTD = "/home/aaowner/alienarena/arena/motd.txt";
+my $MapsLst = "/home/aaowner/alienarena/share/alienarena/arena/maps.lst";
+my $DefaultCfg = "/home/aaowner/alienarena/share/alienarena/arena/default.cfg";
+my $ServerCfg = "/home/aaowner/alienarena/share/alienarena/arena/server.cfg";
+my $MOTD = "/home/aaowner/alienarena/share/alienarena/arena/motd.txt";
 
 ###################################################
 # No changes below here
@@ -22,7 +22,7 @@ my $MOTD = "/home/aaowner/alienarena/arena/motd.txt";
 
 my $MySettings = "$ENV{'HOME'}/.aamcrc";
 
-my $AAMC_ver = "1.4";
+my $AAMC_ver = "1.5";
 my $Record = "false";	# Are results saved?
 my $TempDir = "/tmp";
 my $RobotName = "";
